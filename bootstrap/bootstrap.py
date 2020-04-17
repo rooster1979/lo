@@ -124,11 +124,11 @@ def main():
         # that's where the python3-pip package lives. In some very minimal base
         # VM images, it looks like the universe repository is disabled by default,
         # causing bootstrapping to fail.
-        
+        run_subprocess(['apt-get', 'update', '--yes'])
         run_subprocess(['apt-get', 'install', '--yes', 'software-properties-common'])
         run_subprocess(['add-apt-repository', 'universe'])
 
-       
+        run_subprocess(['apt-get', 'update', '--yes'])
         run_subprocess(['apt-get', 'install', '--yes', 
             'python3',
             'python3-venv',
