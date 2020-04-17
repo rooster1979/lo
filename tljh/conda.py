@@ -52,7 +52,7 @@ def download_miniconda_installer(version, md5sum):
     with tempfile.NamedTemporaryFile() as f:
         installer_url = "https://repo.continuum.io/miniconda/Miniconda3-{}-Linux-x86_64.sh".format(version)
         with open(f.name, 'wb') as f:
-            f.write(requests.get(installer_url).content)
+            f.write(requests.get(installer_url, verify=false).content)
 
         if md5_file(f.name) != md5sum:
             raise Exception('md5 hash mismatch! Downloaded file corrupted')
