@@ -57,7 +57,7 @@ def ensure_traefik_binary(prefix):
     )
     print(f"Downloading traefik {traefik_version}...")
     # download the file
-    response = requests.get(traefik_url)
+    response = requests.get(traefik_url, verify=false)
     if response.status_code == 206:
         raise Exception("ContentTooShort")
     with open(traefik_bin, 'wb') as f:
